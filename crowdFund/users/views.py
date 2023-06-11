@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .models import Users, Login
-from .forms import LoginForm
+from .forms import LoginForm,RegForm
 
 # Create your views here.
 def login(request):
@@ -26,3 +26,31 @@ def login(request):
                 return HttpResponse('users/register.html')
         
     return render(request, 'users/login.html', {'formLogin':LoginForm})
+
+
+
+
+def registeration(request):
+    if request.method == "POST":
+        data=RegForm(request.POST)
+        if data.is_valid():
+            userdata=Users.objects.all()
+            email=request.POST.get('email')
+            print(email)
+            emails=[]
+            for user in userdata:
+                print(user.email)
+                emails.append(user.email)
+                print(emails)
+            if email in emails  :
+                    print("email already exist") 
+                    
+            else:
+                    data.save()
+                    
+    
+        
+        else:
+                print("invalid data")      
+    return render(request,"users/register.html", {"lf":RegForm})
+ 
