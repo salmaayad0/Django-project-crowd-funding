@@ -7,7 +7,8 @@ urlpatterns = [
 
       path("verification",views.verification,name="verification"),
 
-  path("",views.registeration,name="regesteration")
+  path("",views.registeration,name="regesteration"),
+
 
 ]
 

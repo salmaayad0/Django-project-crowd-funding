@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect  
 
@@ -6,6 +6,8 @@ from .models import Users, Login
 from .forms import LoginForm,RegForm
 
 # Create your views here.
+
+#login function
 def login(request):
     if request.method == 'POST':
        loginData = LoginForm(request.POST)
@@ -40,13 +42,20 @@ def index(request):
 
     return render(request, 'users/index.html')
 
+
+
+
+# regesteration function
+
 def registeration(request):
     if request.method == "POST":
         data=RegForm(request.POST)
         if data.is_valid():
             userdata=Users.objects.all()
             email=request.POST.get('email')
-            print(email)
+            password=request.POST.get('password')
+            confirm_password=request.POST.get('confirm_password')
+            # print(email)
             emails=[]
             for user in userdata:
                 print(user.email)
@@ -58,11 +67,13 @@ def registeration(request):
  
                     
             else:
-                    data.save()
-                    return HttpResponseRedirect("/verification")
+                    if password==confirm_password:
+                        data.save()
+                        return HttpResponseRedirect("/verification")
                     
     
-        
+                    else:
+                        return render(request,"users/errorpass.html")
         else:
                 print("invalid data")      
     return render(request,"users/register.html", {"lf":RegForm})
