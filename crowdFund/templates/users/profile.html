@@ -1,0 +1,19 @@
+{% extends 'basic.html'%} 
+{% load static %}
+{% block content %}
+<div class="card">
+    <div class="img">
+        <img src={{user.image.url}} alt="." >
+    </div>
+   <div>
+    <h1>{{user.first_name}}  {{user.last_name}}</h1>
+    <p class="title">{{user.email}}</p>
+    <p class="title">{{user.phone_number}}</p>
+   </div>
+  </div>
+  <a href="{% url 'update_user' user.email  %}">update</a>
+<a href="{% url 'view_project' user.email %}">show your projects</a>
+<a href="{% url 'delete_user' user.email %}">delete </a>
+
+<a href="{% url 'view'  %}">show all projects for you and others</a>
+{% endblock content %}

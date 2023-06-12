@@ -10,42 +10,54 @@
         type="text"
         class="form-control"
         id="title"
-        placeholder="course name"
+        placeholder="project name"
         name="title"
       />
     </div>
 
     <div class="mb-3">
+      <label for="title" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="your email"
+        name="email"
+      />
+    </div>
+
+    <div class="mb-3">
         <label for="details" class="form-label">Details</label>
-        <input
+        <textarea
           type="text"
           class="form-control"
           id="details"
           placeholder="details"
           name="details"
-        />
+        >
+    </textarea>
       </div>
 
     <div class="mb-3">
         <label for="category" class="form-label">Category</label>
-        <input
-          type="text"
-          class="form-control"
-          id="category"
-          placeholder="category name"
-          name="category"
-        />
+        <select type="text"
+        class="form-control"
+        id="category"
+        name="category">
+          <option value="education">education</option>
+          <option value="entertainment">entertainment</option>
+          <option value="sports">sports</option>
+          <option value="fashon">fashon</option>
+        </select>
       </div>
-
    
 
       <div class="mb-3">
         <label for="mutliImage" class="form-label">Image</label>
         <input
-          type="text"
+          type="file"
           class="form-control"
           id="mutliImage"
-          placeholder="add Images"
           name="mutliImage"
         />
       </div>
@@ -63,19 +75,21 @@
 
       <div class="mb-3">
         <label for="tag" class="form-label">tag</label>
-        <input
-          type="text"
-          class="form-control"
-          id="tag"
-          placeholder="tag name"
-          name="tag"
-        />
+        <select type="text"
+        class="form-control"
+        id="tag"
+        name="tag">
+          <option value="education">education</option>
+          <option value="entertainment">entertainment</option>
+          <option value="sports">sports</option>
+          <option value="fashon">fashon</option>
+        </select>
       </div>
 
       <div class="mb-3">
         <label for="startDate" class="form-label">Start Date</label>
         <input
-          type="text"
+          type="date"
           class="form-control"
           id="startDate"
           placeholder="enter start date"

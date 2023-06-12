@@ -11,6 +11,12 @@ from projects.models import Project
 
 # Create your views here.
 
+#home function
+def home(request,userEmail_id):
+    data = Users.objects.get(email=userEmail_id)
+    return render(request, 'users/home.html',{"data":data})
+
+
 #login function
 def login(request):
     if request.method == 'POST':
@@ -29,39 +35,23 @@ def login(request):
             if email in emails  :
                     print("email already exist")
                     if user.password==password :
-                     return HttpResponseRedirect("/home")
+                     return HttpResponseRedirect(f"/home/{email}")
 
             else:
                  return HttpResponseRedirect("/login")
     return render(request, 'users/login.html', {'formLogin':LoginForm})
 
+
+
 def verification(request):
-
-
     return render(request, 'users/verification.html')
-def index(request,userEmail_id):
-
-        data = Users.objects.get(email=userEmail_id)
-
-        return render(request, 'users/index.html',{"data":data})
-
-# def index(request):
-
-#         data = Users.objects.all()
-
-#         return render(request, 'users/index.html',{"data":data})
-
-
-# regesteration function
-
-def home(request):
-           return render(request, 'users/home.html')
 
 
 def list_users(request):
-     
-        data=Users.objects.all()
-        return render(request,"users/allusers.html",{"users":data})
+    data=Users.objects.all()
+    return render(request,"users/allusers.html",{"users":data})
+
+
 # regesteration function
 def registeration(request):
     if request.method == "POST":
@@ -71,7 +61,6 @@ def registeration(request):
             email=request.POST.get('email')
             password=request.POST.get('password')
             confirm_password=request.POST.get('confirm_password')
-            # print(email)
             emails=[]
             for user in userdata:
                 print(user.email)
@@ -94,14 +83,7 @@ def registeration(request):
  
 
 
-
-
-
-# ------------------------------------------------------------------------------------------ #
 def View(request):
-        print("------------View Project----------------")
-  
-
         data = Project.objects.all()
         projects = []
         for project in data:
@@ -125,17 +107,11 @@ def view_project(request,userEmail_id)   :
              
         
         return render(request,"users/show_userproject.html")
-# 
-
-
 
 
 def update_user(request,userEmail_id):
-        
-
         data = Users.objects.get(email=userEmail_id)
 
-        # data=Trainee.objects.get(id=ID)
         if (request.method=="POST"):
             Users.objects.filter(email=userEmail_id).update(first_name=request.POST['first_name'],
                                                        last_name=request.POST['last_name'],
@@ -143,5 +119,17 @@ def update_user(request,userEmail_id):
                                                        image=request.POST['image']     ,                                              
                                                        phone_number=request.POST['phone_number']                   )
             
-            return HttpResponseRedirect("/home")
+            return HttpResponseRedirect(f"/profile/{userEmail_id}")
         return render(request,"users/update_user.html",{"user":data})
+
+
+# delete account 
+def delete_user(request, userEmail_id):
+    Users.objects.filter(email = userEmail_id).delete()
+    return HttpResponseRedirect('/')
+
+
+# profile 
+def userProfile(request, userEmail_id):
+    user = Users.objects.get(email = userEmail_id)
+    return render(request,"users/profile.html", {"user":user})
