@@ -52,8 +52,7 @@ def registeration(request):
                 emails.append(user.email)
                 print(emails)
             if email in emails  :
-                    print("email already exist")
-                    return HttpResponseRedirect("/login")
+                    print("email already exist") 
                     
             else:
                     data.save()
