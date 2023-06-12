@@ -43,7 +43,8 @@ body {
   
 } */
 
-.wrapper form .field input {
+.wrapper form .field input,
+.wrapper form .field textarea{
   height: 100%;
   width: 100%;
   outline: none;
@@ -89,7 +90,8 @@ form .content {
   align-items: center;
   justify-content: center;
 } */
-form .content input {
+form .content input,
+form .content textarea{
   display: block;
   width: 15px;
   height: 15px;
@@ -132,4 +134,34 @@ form .signup-link a {
 form .pass-link a:hover,
 form .signup-link a:hover {
   text-decoration: underline;
+}
+
+
+/* profile style */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-height: 500px;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.card div{
+  text-align: center;
+  justify-content: center;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+.img{
+  display: block;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  overflow: hidden;
 }

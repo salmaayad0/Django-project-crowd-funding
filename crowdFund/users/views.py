@@ -33,13 +33,12 @@ def login(request):
                  return HttpResponseRedirect("/login")
     return render(request, 'users/login.html', {'formLogin':LoginForm})
 
+
 def verification(request):
-
-
     return render(request, 'users/verification.html')
+
+
 def index(request):
-
-
     return render(request, 'users/index.html')
 
 
@@ -75,3 +74,14 @@ def registeration(request):
                 print("invalid data")      
     return render(request,"users/register.html", {"lf":RegForm})
  
+
+# delete account 
+def deleteUser(request, email):
+    Users.objects.filter(email = email).delete()
+    return HttpResponseRedirect('')
+
+
+# profile 
+def userProfile(request, email):
+    user = Users.objects.get(email = email)
+    return render(request,"users/profile.html", {"user":user})
