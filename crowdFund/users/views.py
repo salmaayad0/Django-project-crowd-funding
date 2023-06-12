@@ -17,10 +17,11 @@ def login(request):
              dbEmail = user.email
              dbpassword = user.password
              print(dbEmail)
-             if email == dbEmail and password == dbpassword:
+             if email == dbEmail & password == dbpassword:
                 user = {
                 'email': email,
-                'password': password }
+                'password': password 
+                }
                 return HttpResponse('users/index.html')
              else:
                 return HttpResponse('users/register.html')

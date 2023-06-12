@@ -1,13 +1,20 @@
 {% extends 'basic.html'%} 
+{% load static %}
 {% block content %}
-<h1 class="text-center text-danger">register</h1>
+  <div class="wrapper">
+    <div class="title">
+       Registeration
+    </div>
 
  <form method="POST">
    {% csrf_token %}
-{{lf}}
-    
-    <button type="submit">submit</button>
+
+  {{lf}}
+  <input type="submit" value="Sign Up">
+
+<div class="signup-link">
+  You are a member? <a href="#">Login now</a>
+</div>
 
  </form>
-
 {% endblock content %}
