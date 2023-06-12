@@ -14,7 +14,7 @@ class Users(models.Model):
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
 
     def __str__(self):
-        return self.first_name
+        return self.email
     
 
 class Login(models.Model):

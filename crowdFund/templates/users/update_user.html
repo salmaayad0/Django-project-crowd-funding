@@ -1,0 +1,45 @@
+{% extends 'basic.html'%}
+{% block content %}
+<h1 class="text-center">Update User</h1>
+<form method="POST">
+  {% csrf_token %}
+
+  <div class="mb-3">
+    <label for="first_name" class="form-label">first name</label>
+    <input type="text" name='first_name' value={{user.first_name}} class="form-control" id="first_name"
+    >
+
+  </div>
+
+  <div class="mb-3">
+    <label for="last_name" class="form-label">last name</label>
+    <input type="text" name='last_name' value={{user.last_name}} class="form-control" id="last_name">
+
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" value={{user.password}} class="form-control" id="exampleInputPassword1">
+  </div>
+
+
+
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone number</label>
+    <input type="tel" name="phone_number" value={{user.phone_number}} class="form-control"
+      id="phone">
+  </div>
+
+  <div class="mb-3">
+    <label for="image" class="form-label">Image</label>
+    <input type="file" class="form-control" id="image" value={{user.image}} placeholder="add Images" name="image" />
+  </div>
+
+  
+
+
+
+  <button type="submit" class="btn btn-dark">update User</button>
+</form>
+
+{% endblock content %}

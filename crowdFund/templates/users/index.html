@@ -1,5 +1,12 @@
 {% extends 'basic.html'%} 
 {% block content %}
 <h1>index</h1>
+{{data}}
+
+<a href="{% url 'update_user' data  %}">update</a>
+<a href="{% url 'view_project' data   %}">show your projects</a>
+<a href="{% url 'view'    %}">show all projects for you and others</a>
+
+
 
 {% endblock content %}
