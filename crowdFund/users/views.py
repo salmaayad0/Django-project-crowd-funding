@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect  
-=======
+from django.http import HttpResponse, HttpResponseRedirect  
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
->>>>>>> 9bc522e9a3258eb9f6dc9e7a0f8db2b4ded41120
+
 
 from .models import Users, Login
 from .forms import LoginForm,RegForm
@@ -47,12 +44,8 @@ def index(request):
 
 
 
-<<<<<<< HEAD
 
 # regesteration function
-
-=======
->>>>>>> 9bc522e9a3258eb9f6dc9e7a0f8db2b4ded41120
 def registeration(request):
     if request.method == "POST":
         data=RegForm(request.POST)
