@@ -1,1 +1,17 @@
-{{projects}}
+<!-- {{projects}} -->
+<!-- {{projects}} -->
+{% for x in projects %}
+<table></table>
+<tr>
+            <td>{{x.title}}</td>
+            <td>{{x.category}}</td>
+            <td>{{x.details}}</td>
+            <td>{{x.category}}</td> 
+            <td>{{x.mutliImage}}</td>
+            <td>{{x.totalTarget}}</td>
+            <td>{{x.tag}}</td>
+            <td>{{x.startDate}}</td>
+            <td>{{x.email}}</td>
+        </tr>
+        </table>
+{% endfor %}

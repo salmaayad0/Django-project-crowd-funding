@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import date
 import datetime
+from django.db import models
+from users.models import Users
 
 # Create your models here.
 class Project(models.Model):
@@ -21,4 +23,5 @@ class Project(models.Model):
                                          ('fashon','fashon')
                                          ])
     startDate = models.DateField(default=datetime.date.today)
+    userEmail = models.ForeignKey(Users, on_delete= models.CASCADE)
     

@@ -29,7 +29,7 @@ def login(request):
             if email in emails  :
                     print("email already exist")
                     if user.password==password :
-                     return HttpResponseRedirect("/index")
+                     return HttpResponseRedirect("/home")
 
             else:
                  return HttpResponseRedirect("/login")
@@ -39,14 +39,30 @@ def verification(request):
 
 
     return render(request, 'users/verification.html')
-def index(request):
+def index(request,userEmail_id):
 
+        data = Users.objects.get(email=userEmail_id)
 
-    return render(request, 'users/index.html')
+        return render(request, 'users/index.html',{"data":data})
+
+# def index(request):
+
+#         data = Users.objects.all()
+
+#         return render(request, 'users/index.html',{"data":data})
 
 
 # regesteration function
 
+def home(request):
+           return render(request, 'users/home.html')
+
+
+def list_users(request):
+     
+        data=Users.objects.all()
+        return render(request,"users/allusers.html",{"users":data})
+# regesteration function
 def registeration(request):
     if request.method == "POST":
         data=RegForm(request.POST)
@@ -84,40 +100,48 @@ def registeration(request):
 # ------------------------------------------------------------------------------------------ #
 def View(request):
         print("------------View Project----------------")
-    # try:
-    #     readfile = open("projects.txt")
-    # except:
-    #     print("File Doesnt Exit")
-    # else:
-        # read data from file
+  
 
         data = Project.objects.all()
         projects = []
         for project in data:
-            # project.title
-            # project.details
-            # project.category
-            # project.mutliImage
-            # project.totalTarget
-            # project.tag
-            # project.startDate
-            # project.email
+           
             projects.append(project)
-        # for project in projects:
-        #     projectsdetails = project.split(",")
-        #     if projectsdetails[7] == email:
-        #         print("----------------Projects----------------")
             print(f"{projects}")
              
-        # else:
-        #      print("This user doesnt have any projects to view")
+      
         return render(request,"users/allprojects.html", {"projects":projects})
 
-def view_project(request,email)   :
-        # email=request.POST.get('email')
+def view_project(request,userEmail_id)   :
+       
+        print(userEmail_id)
         data = Project.objects.all()
         for project in data:
-             print(project.userEmail)
-             if project.userEmail ==email:
-                  show=Project.objects.get(email=project.userEmail)
-        return render(request,"users/allproject.html", {"project":show})
+             emails=[]
+             emails.append(project.userEmail)
+             if str(userEmail_id)== str(emails[0]):
+                 show=Project.objects.get(userEmail_id=project.userEmail)
+                 return render(request,"users/user_project.html",{"project":show})
+             
+        
+        return render(request,"users/show_userproject.html")
+# 
+
+
+
+
+def update_user(request,userEmail_id):
+        
+
+        data = Users.objects.get(email=userEmail_id)
+
+        # data=Trainee.objects.get(id=ID)
+        if (request.method=="POST"):
+            Users.objects.filter(email=userEmail_id).update(first_name=request.POST['first_name'],
+                                                       last_name=request.POST['last_name'],
+                                                       password=request.POST['password'],
+                                                       image=request.POST['image']     ,                                              
+                                                       phone_number=request.POST['phone_number']                   )
+            
+            return HttpResponseRedirect("/home")
+        return render(request,"users/update_user.html",{"user":data})

@@ -1,0 +1,89 @@
+{% extends 'basic.html'%} 
+{% block content %}
+<h1 class="text-center">Add Project</h1>
+<form method="POST">
+    {% csrf_token %}
+  
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        placeholder="course name"
+        name="title"
+      />
+    </div>
+
+    <div class="mb-3">
+        <label for="details" class="form-label">Details</label>
+        <input
+          type="text"
+          class="form-control"
+          id="details"
+          placeholder="details"
+          name="details"
+        />
+      </div>
+
+    <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <input
+          type="text"
+          class="form-control"
+          id="category"
+          placeholder="category name"
+          name="category"
+        />
+      </div>
+
+   
+
+      <div class="mb-3">
+        <label for="mutliImage" class="form-label">Image</label>
+        <input
+          type="text"
+          class="form-control"
+          id="mutliImage"
+          placeholder="add Images"
+          name="mutliImage"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="totalTarget" class="form-label">Target</label>
+        <input
+          type="text"
+          class="form-control"
+          id="totalTarget"
+          placeholder="your target"
+          name="totalTarget"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="tag" class="form-label">tag</label>
+        <input
+          type="text"
+          class="form-control"
+          id="tag"
+          placeholder="tag name"
+          name="tag"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date</label>
+        <input
+          type="text"
+          class="form-control"
+          id="startDate"
+          placeholder="enter start date"
+          name="startDate"
+        />
+      </div>
+  
+    <button type="submit" class="btn btn-dark">Add Project</button>
+  </form>
+
+{% endblock content %}
