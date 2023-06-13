@@ -80,7 +80,17 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'crowd', 
+    #     'USER': 'django',
+    #     'PASSWORD':'eman123',
+    #     'HOST': 'localhost', 
+    #     "PORT":"5433"
+    # }
+    }
+
 
 
 # Password validation

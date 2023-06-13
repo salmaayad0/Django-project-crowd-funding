@@ -11,6 +11,8 @@ urlpatterns = [
     path("view_project/<userEmail_id>",views.view_project,name="view_project"),
     path("update_user/<userEmail_id>",views.update_user,name="update_user"),
     path("delete_user/<userEmail_id>",views.delete_user,name="delete_user"),   
-    path('profile/<userEmail_id>',views.userProfile,name ="profile")
+    path('profile/<userEmail_id>',views.userProfile,name ="profile"),
+    path('addproject', views.addproject, name='addProject')
+
 ]
 

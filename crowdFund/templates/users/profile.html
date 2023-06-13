@@ -8,6 +8,7 @@
     <p class="title">{{user.email}}</p>
     <p class="title">{{user.phone_number}}</p>
   </div>
+<<<<<<< HEAD
 </div>
 <a
   style="background-color: navy; color: white; padding: 7px 10px"
@@ -24,6 +25,13 @@
   href="{% url 'delete_user' user.email %}"
   >delete
 </a>
+=======
+  <a href="{% url 'update_user' user.email  %}">update</a>
+<a href="{% url 'view_project' user.email %}">show your projects</a>
+<a href="{% url 'addProject' user.email %}">addyour projects</a>
+ 
+<a href="{% url 'delete_user' user.email %}">delete </a>
+>>>>>>> 16068275c90bebf212ed362f36d284e03edcd293
 
 <a
   style="background-color: navy; color: white; padding: 7px 10px"

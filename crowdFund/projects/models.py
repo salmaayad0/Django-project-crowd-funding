@@ -14,7 +14,7 @@ class Project(models.Model):
                                          ('sports','sports'), 
                                          ('fashon','fashon')
                                          ])
-    mutliImage = models.ImageField(upload_to="photos/%y/%m/%d", blank=True)
+    mutliImage = models.ImageField(upload_to="photo/%y/%m/%d", blank=True)
     totalTarget = models.DecimalField(max_digits=6, decimal_places=0)
     tag = models.CharField(max_length=50,null=True, blank=True, 
                                 choices=[('education','education'),
@@ -23,5 +23,6 @@ class Project(models.Model):
                                          ('fashon','fashon')
                                          ])
     startDate = models.DateField(default=datetime.date.today)
-    userEmail = models.ForeignKey(Users, on_delete= models.CASCADE)
+    # userEmail = models.ForeignKey(Users, on_delete= models.CASCADE)
+    email=models.EmailField()
     
