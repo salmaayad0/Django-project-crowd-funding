@@ -1,6 +1,5 @@
 from django import forms
 from .models import Login,Users
-
 class LoginForm(forms.ModelForm):
     password = forms.CharField(
         label='Password', 
@@ -14,18 +13,19 @@ class LoginForm(forms.ModelForm):
 
         
 class RegForm(forms.ModelForm):
-    password = forms.CharField(
-        label='Password', 
-        strip=False,
-        widget=forms.PasswordInput(attrs={'autocomplete': 'password'}),
-    )
+    # password = forms.CharField(
+    #     label='Password', 
+    #     strip=False,
+    #     widget=forms.PasswordInput(attrs={'autocomplete': 'password'}),
+    # )
     
-    confirm_password = forms.CharField(
-        label='Confirm Password', 
-        strip=False,
-        widget=forms.PasswordInput(attrs={'autocomplete': 'password'}),
-    )
+    # confirm_password = forms.CharField(
+    #     label='Confirm Password', 
+    #     strip=False,
+    #     widget=forms.PasswordInput(attrs={'autocomplete': 'password'}),
+    # )
     
     class Meta:
         model=Users
-        fields=fields = ['first_name','last_name','email','image', 'phone_number']
+        # fields= ['first_name','last_name','email','image', 'phone_number']
+        fields="__all__"

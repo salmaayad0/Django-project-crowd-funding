@@ -13,6 +13,8 @@
   </div>
   <a href="{% url 'update_user' user.email  %}">update</a>
 <a href="{% url 'view_project' user.email %}">show your projects</a>
+<a href="{% url 'addProject' user.email %}">addyour projects</a>
+ 
 <a href="{% url 'delete_user' user.email %}">delete </a>
 
 <a href="{% url 'view'  %}">show all projects for you and others</a>
