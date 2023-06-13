@@ -1,13 +1,15 @@
 {% extends 'basic.html'%} 
 {% load static %} 
 {% block content %}
-<h1 class="text-center">Projects</h1>
+<h1 class="text-center">sports Projects</h1>
 
 {% for project in projects %}
 <div class="card">
     <div class="img">
-        <img src={{project.mutliImage.url}} alt="." >
+        <img src='' alt="." >
     </div>
+    {% comment %} {{project.mutliImage.url}} {% endcomment %}
+   <div>
    <div>
     <h1>{{project.title}}</h1>
     <p class="title">{{project.details}}</p>
@@ -19,4 +21,6 @@
   </div>
 
 {% endfor %}
+
+
 {% endblock content %}

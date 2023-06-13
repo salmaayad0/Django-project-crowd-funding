@@ -1,7 +1,9 @@
-{% extends 'basic.html'%} 
-
-{% block content %}
+{% extends 'basic.html'%} {% block content %}
 <h1>hello verification</h1>
-<a href="{% url 'login'  %}">verification</a>
+<a
+  style="background-color: navy; color: white; padding: 7px 10px"
+  href="{% url 'login'  %}"
+  >verification</a
+>
 
 {% endblock content %}

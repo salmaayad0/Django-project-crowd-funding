@@ -1,18 +1,19 @@
-{{project}}
+{% extends 'basic.html'%} 
+{% load static %} 
+{% block content %}
 
-<table class="table">
-    <tr>
-        <td>{{project.title}}</td>
-        <td>{{project.category}}</td>
-            <td> project.title</td>
-             <td>project.details</td>
-            <td>project.category</td> 
-            <td>project.mutliImage</td>
-            <td>project.totalTarget</td>
-            <td>project.tag</td>
-            <td>project.startDate</td>
-            <td>project.email</td>
-    </tr>
-   
-</table>
-
+<h1 class="text-center">Your Project</h1>
+<div class="card">
+    <div class="img">
+        <img src={{project.mutliImage.url}} alt="." >
+    </div>
+   <div>
+    <h1>{{project.title}}</h1>
+    <p class="title">{{project.details}}</p>
+    <span class="title">{{project.category}}</span>
+    <span class="title">{{project.tag}}</span>
+    <h4>{{project.totalTarget}}</h4>
+    <p class="title">{{project.startDate}}</p>
+   </div>
+  </div>
+  {% endblock content %}

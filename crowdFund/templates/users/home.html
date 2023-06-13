@@ -1,5 +1,26 @@
-<h1>hallo from home page</h1>
-<br>
-<a href="{% url 'profile' data.email %}">go to my profile </a>
+{% extends 'basic.html'%} 
+{% load static %} 
+{% block content %}
 
-<a></a>
+<a
+  style="background-color: navy; color: white; padding: 7px 10px"
+  href="{% url 'education' %}"
+  >education</a
+>
+<a
+  style="background-color: navy; color: white; padding: 7px 10px"
+  href="{% url 'entertainment' %}"
+  >entertainment</a
+>
+<a
+  style="background-color: navy; color: white; padding: 7px 10px"
+  href="{% url 'sports' %}"
+  >sports</a
+>
+<a
+  style="background-color: navy; color: white; padding: 7px 10px"
+  href="{% url 'fashon' %}"
+  >fashon</a
+>
+
+{% endblock content %}
